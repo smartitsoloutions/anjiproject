@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDBS31;databaseName=SmartPRA_Proration_UAT;instanceName=SmartPRA_Proration_UAT;portNumber=1433;user=airline;password=abc@123
+
+  jpa:
+  
+    properties:
+      hibernate:
+       default_schema: SmartPRAGlobal
+       dialect: org.hibernate.dialect.SQLServer2012Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.245.240.54:8061/eureka  
+      

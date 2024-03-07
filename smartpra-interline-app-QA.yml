@@ -1,0 +1,32 @@
+server:
+  port: 8063
+ 
+
+spring:
+  datasource:
+    url:  jdbc:sqlserver://SINAZEDEV18;instanceName=SmartPRA_QA;portNumber=1433;user=qasmartpra;password=Tqrmdp234$#@!
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver   
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: SmartPRAInterline_Stg
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        
+    hibernate:
+      ddl-auto: none   
+       
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.245.240.63:8061/eureka       
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000   
+        

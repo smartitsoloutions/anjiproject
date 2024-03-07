@@ -1,0 +1,45 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8787
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  rabbitmq:
+     host: 10.245.240.45
+     port: 5672
+     username: admin
+     password: admin
+  jpa:
+  
+    properties:
+      hibernate:
+       default_schema: SmartPRAGlobal
+       dialect: org.hibernate.dialect.SQLServer2012Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+                  
+                  
+server:
+  port: 8098
+  servlet:
+    context-path: /global
+    
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka
+      
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
+
+        

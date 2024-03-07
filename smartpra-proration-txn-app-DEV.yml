@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+  rabbitmq:
+    host: 10.245.240.45
+    port: 5672
+    username: admin
+    password: admin
+
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.245.240.45:8061/eureka       

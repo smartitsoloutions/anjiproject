@@ -1,0 +1,50 @@
+server:
+  port: 8091 
+  servlet:
+    context-path: /batch
+ 
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver   
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: YQYRGlobal_Stg
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        
+    hibernate:
+      ddl-auto: none   
+       
+  batch:
+    job:
+      enabled: false 
+    tablePrefix : SmartPRAGlobalBatch.BATCH_
+       
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka      
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000 
+max-threads: 20    
+batch-input-dir: /opt/smartpra/yqyr/input    
+
+sftp: 
+  host: tsftp.sutherlandglobal.com   
+  port: 22 
+  user: Atpco.Process
+  password: Tqe7-m5!
+  local: 
+    directory: 
+      download: /opt/smartpra/yqyr/input        
+        

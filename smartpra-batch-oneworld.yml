@@ -1,0 +1,87 @@
+server:
+  port: 8093
+  servlet:
+    context-path: /oneworld
+ 
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver   
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        connection:
+          CharSet: UTF-8
+          characterEncoding: UTF-8
+          useUnicode: true
+        default_schema: smartpraoneworld
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        
+    hibernate:
+      ddl-auto: none   
+       
+  batch:
+    #initialize-schema: always
+    #schema: SmartPRAGlobalBatch
+    initializer: 
+       enabled: false
+    job:
+      enabled: false 
+    tablePrefix: SmartPRAGlobalBatch.BATCH_
+       
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka      
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000 
+        
+max-threads: 1         
+sftp:
+  host: tsftp.sutherlandglobal.com
+  port: 22
+  user: Atpco.Process
+  password: Tqe7-m5!
+  #local:
+    #directory:
+      #download:
+        #request-in: /opt/smartpra/oneworld/request-in
+        #response-in: /opt/smartpra/oneworld/response-in
+        #codeshare-in: /opt/smartpra/oneworld/codeshare-in
+        #esale-in: /opt/smartpra/oneworld/esale-in
+       
+  #remote:
+    #directory:
+      #download:
+        #request-in: /oneworld/request-in/
+        #response-in: /oneworld/response-in/
+        #codeshare-in: /oneworld/codeshare-in/
+        #esale-in: /oneworld/esale-in/
+#batch:
+  #inputdirectory:
+    #request-in: /opt/smartpra/oneworld/request-in
+    #response-in: /opt/smartpra/oneworld/response-in
+    #codeshare-in: /opt/smartpra/oneworld/codeshare-in
+    #esale-in: /opt/smartpra/oneworld/esale-in
+    
+  #input:
+    #directory:
+      #codeshare-in: /opt/smartpra/oneworld/codeshare-in
+
+logging:
+  file: logs/application.log
+  pattern:
+    file: "%d %-5level [%thread] %logger{0} : %msg%n"
+  level:
+    org.springframework.web: WARN
+    com.sgl.smartpra : DEBUG
+    org.hibernate: WARN                   

@@ -1,0 +1,14 @@
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.245.240.45:8061/eureka
+      
+spring:
+  rabbitmq:
+    host: 10.245.240.45
+    port: 5672
+    username: admin
+    password: admin
+      

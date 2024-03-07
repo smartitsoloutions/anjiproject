@@ -1,0 +1,33 @@
+server:
+  port: 8052
+  servlet:
+    context-path: /exception-master
+ 
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver   
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: SmartPRAGlobal
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        
+    hibernate:
+      ddl-auto: none    
+
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka      
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000

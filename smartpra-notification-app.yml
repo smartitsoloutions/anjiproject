@@ -1,0 +1,38 @@
+server:
+  port: 8056
+  servlet:
+    context-path: /notification
+ 
+
+spring:
+  rabbitmq:
+    host: 10.245.240.45
+    port: 5672
+    username: admin
+    password: admin
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: SmartPRABPM
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        
+    hibernate:
+      ddl-auto: none    
+  
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka      
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000

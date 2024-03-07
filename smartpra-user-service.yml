@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        default_schema: SmartPRAUsers
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+server:
+  port: 1212
+  servlet:
+    context-path: /user-management
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8061/eureka

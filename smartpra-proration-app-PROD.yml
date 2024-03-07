@@ -1,0 +1,14 @@
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.245.240.62:8061/eureka
+      
+spring:
+  rabbitmq:
+    host: 10.245.240.62
+    port: 5672
+    username: admin
+    password: Smartpra*123
+      

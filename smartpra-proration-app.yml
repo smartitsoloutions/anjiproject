@@ -1,0 +1,27 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /proration
+    
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
+              
+spring:
+  rabbitmq:
+    host: 10.245.240.45
+    port: 5672
+    username: admin
+    password: admin
+      
+    

@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        default_schema: SmartPRAUsers
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+server:
+  port: 2222
+  servlet:
+    context-path: /auth-service
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
+oauth2:
+  id: smartpra-client
+  secret: $2a$04$e/c1/RfsWuThaWFCrcCuJeoyvwCV0URN/6Pn9ZFlrtIWaU/vj/BfG
+  grantTypePassword: password
+  authorizationCode: authorization_code
+  refreshToken: refresh_token
+  implicit: implicit
+  scopeRead: read
+  scopeWrite: write
+  trust: trust
+  accessTokenValidityInSec: 1*60*60
+  refreshTokenValidityInSec: 1*60*60
+  signInKey: jayaram

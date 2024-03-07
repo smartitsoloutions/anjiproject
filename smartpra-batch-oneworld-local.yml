@@ -1,0 +1,89 @@
+server:
+  port: 8093
+  servlet:
+    context-path: /oneworld
+ 
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://WusAzeDev06;instanceName=SmartPRA_RnD;portNumber=1433;user=smartprarnd;password=AX83aF@s
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver   
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: smartpraoneworld
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        
+    hibernate:
+      ddl-auto: none   
+       
+  batch:
+    initialize-schema: always
+    #schema: SmartPRAGlobalBatch
+    initializer: 
+       enabled: false
+    job:
+      enabled: false 
+    tablePrefix : BATCH_
+       
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka      
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000 
+        
+max-threads: 1         
+sftp:
+  host: tsftp.sutherlandglobal.com
+  port: 22
+  user: Atpco.Process
+  password: Tqe7-m5!
+  local:
+    directory:
+      download:
+        request-in: C:\Users\patprati2\Desktop\oneworld
+        response-in: C:\Users\patprati2\Desktop\oneworld
+        codeshare-in: C:\Users\patprati2\Desktop\oneworld
+        esale-in: C:\Users\patprati2\Desktop\oneworld
+  remote:
+    directory:
+      download:
+        request-in: /oneworld/request-in/
+        response-in: /oneworld/response-in/
+        codeshare-in: /oneworld/codeshare-in/
+        esale-in: /oneworld/esale-in/
+      upload:
+        esale-out: /oneworld/esale-out/        
+batch:
+  directory:
+    esal:
+      input: /opt/smartpra/oneworld/esal/input/
+      processed: /opt/smartpra/oneworld/esal/processed/
+      duplicate: /opt/smartpra/oneworld/esal/duplicate/
+      failed: /opt/smartpra/oneworld/esal/failed/
+      output: /opt/smartpra/oneworld/esal/output/ 
+  inputdirectory:
+    request-in: C:\Users\patprati2\Desktop\oneworld
+    response-in: C:\Users\patprati2\Desktop\oneworld
+    codeshare-in: C:\Users\patprati2\Desktop\oneworld\codeshare
+  input:
+    directory:
+      codeshare-in: C:\Users\patprati2\Desktop\oneworld\codeshare
+
+logging:
+  file: logs/application.log
+  pattern:
+    file: "%d %-5level [%thread] %logger{0} : %msg%n"
+  level:
+    org.springframework.web: WARN
+    com.sgl.smartpra : DEBUG
+    org.hibernate: WARN                   

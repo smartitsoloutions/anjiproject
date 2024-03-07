@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDBS32;databaseName=SmartPRA_Proration_PROD;instanceName=SmartPRA_Proration_PROD;portNumber=1433;user=airline;password=#fes343gr4$%rgrgGR
+
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.245.240.62:8061/eureka 

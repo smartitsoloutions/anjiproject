@@ -1,0 +1,66 @@
+server: 
+  servlet: 
+    context-path: /ssim
+  port: 8089
+
+spring: 
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: smartpraflown_stg
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+    hibernate:
+      ddl-auto: none
+      
+  batch: 
+    #initialize-schema: always
+    #schema: SmartPRAGlobalBatch
+    initializer: 
+       enabled: false
+    job:
+      enabled: false
+    tablePrefix : SmartPRAGlobalBatch.BATCH_ 
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka      
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
+        
+max-threads: 1
+batch-input-dir: /opt/smartpra/ssim/ssim-in
+
+#SFTP configuration
+sftp:
+  host: tsftp.sutherlandglobal.com
+  port: 22
+  user: Atpco.Process
+  password: Tqe7-m5!
+  local:
+    directory:
+      download:
+        ssim-in: C:\opt\smartpra\ssim\ssim-in
+  remote:
+    directory:
+      download:
+        ssim-in: /opt/smartpra/ssim/ssim-in
+logging:
+  file: logs/application.log
+  pattern:
+    file: "%d %-5level [%thread] %logger{0} : %msg%n"
+  level:
+    org.springframework.web: WARN
+    com.sgl.smartpra : DEBUG
+    org.hibernate: WARN            
+#batch-input-dir: C:\ssim\input

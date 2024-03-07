@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://SINAZEDEV17;instanceName=SmartPRA_DEV;portNumber=1433;user=devsmartpra;password=Rtsneftimp@423!#
+   
+  batch:
+    #initialize-schema: always
+    #schema: SmartPRAGlobalBatch
+    initializer: 
+       enabled: false
+    job:
+      enabled: false 
+    tablePrefix: SmartPRAGlobalBatch.BATCH_   
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.245.240.45:8061/eureka
+             

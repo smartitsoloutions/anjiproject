@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url:  jdbc:sqlserver://WusAzeDev06;databaseName=SmartPRA_RnD;instanceName=SmartPRA_RnD;portNumber=1433;user=smartprarnd;password=AX83aF@s
+
+    
+eureka:    
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka  
